@@ -8,9 +8,16 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{url('admin/orders')}}">
+                <a class="nav-link" href="{{route('admin.orders')}}">
                     <span data-feather="file"></span>
                     Orders
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('admin.products')}}">
+                    <span data-feather="file"></span>
+                    Products
                 </a>
             </li>
 

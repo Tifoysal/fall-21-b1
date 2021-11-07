@@ -1,10 +1,12 @@
 @extends('admin.master')
 
+
 @section('content')
 
-    <h1>Order list</h1>
+<h1>Product list</h1>
+<a href="{{route('admin.products.create')}}" class="btn btn-success">Create new product</a>
 
-    <table class="table">
+<table class="table">
     <thead>
     <tr>
         <th scope="col">#</th>

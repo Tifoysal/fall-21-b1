@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class OrderController extends Controller
 {
@@ -10,4 +11,6 @@ class OrderController extends Controller
     {
         return view('admin.layouts.order-list');
     }
+
+
 }
