@@ -27,4 +27,5 @@ Route::group(['prefix'=>'admin-portal'],function(){
     Route::get('/orders',[OrderController::class,'orderList'])->name('admin.orders');
     Route::get('/products',[ProductController::class,'productList'])->name('admin.products');
     Route::get('/products/create',[ProductController::class,'productCreate'])->name('admin.products.create');
+    Route::post('product/store',[ProductController::class,'store'])->name('admin.product.store');
 });

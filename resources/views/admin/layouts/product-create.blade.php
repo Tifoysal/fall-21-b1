@@ -5,22 +5,23 @@
 
     <h1>Create a product</h1>
 
-    <form>
+    <form action="{{route('admin.product.store')}}" method="POST">
+        @csrf
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Enter Product Name</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input name="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
         </div><div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Enter Product price</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input name="price" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
         </div><div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Enter Product Quantity</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input name="quantity" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
         </div><div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Enter Product Description</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input name="description" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Upload Product Image</label>
