@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,4 +29,11 @@ Route::group(['prefix'=>'admin-portal'],function(){
     Route::get('/products',[ProductController::class,'productList'])->name('admin.products');
     Route::get('/products/create',[ProductController::class,'productCreate'])->name('admin.products.create');
     Route::post('product/store',[ProductController::class,'store'])->name('admin.product.store');
+
+
+    //category route
+    Route::get('/categories',[CategoryController::class,'list'])->name('admin.category');
+    Route::get('/categories/create',[CategoryController::class,'create'])->name('admin.category.create');
+    Route::post('categories/store',[CategoryController::class,'store'])->name('admin.category.store');
+
 });

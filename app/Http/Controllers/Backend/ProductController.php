@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -11,27 +12,35 @@ class ProductController extends Controller
 
     public function productList()
     {
-        return view('admin.layouts.product-list');
+        $products = Product::with('category')->orderBy('id','desc')->paginate(10);
+        return view('admin.layouts.product-list',compact('products'));
     }
 
     public function productCreate()
     {
-        return view('admin.layouts.product-create');
+        $categories = Category::select('id','name')->orderBy('id','desc')->get();
+        return view('admin.layouts.product-create',compact('categories'));
 
     }
 
     public function store(Request $request){
         // dd($request->all());
 
-        Product::create([
-            // field name from DB ||  field name from form
-            'name'=>$request->name,
-            'price'=>$request->price,
-            'quantity'=>$request->quantity,
-            'description'=>$request->description,
-            
-        ]);
-        return redirect()->back();
+        try {
+            Product::create([
+                // field name from DB ||  field name from form
+                'name'=>$request->name,
+                'category_id'=>$request->category_id,
+                'price'=>$request->price,
+                'quantity'=>$request->quantity,
+                'description'=>$request->description,
+
+            ]);
+            return redirect()->route('admin.products')->with('success','product created successfully');
+        }catch (\Throwable $throwable)
+        {
+            return redirect()->back()->with('error','Something went wrong');
+        }
     }
 
 
