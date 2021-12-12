@@ -8,19 +8,31 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('admin.orders')}}">
+                <a class="nav-link" href="{{route('admin.order.list')}}">
                     <span data-feather="file"></span>
                     Orders
                 </a>
             </li>
-
             <li class="nav-item">
-                <a class="nav-link" href="{{route('admin.products')}}">
+                <a class="nav-link" href="{{route('admin.product.list')}}">
                     <span data-feather="file"></span>
                     Products
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('admin.employee.list')}}">
+                    <span data-feather="file"></span>
+                    Employee
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('admin.category.list')}}">
+                    <span data-feather="file"></span>
+                    Category
+                </a>
+            </li>
         </ul>
 
     </div>
