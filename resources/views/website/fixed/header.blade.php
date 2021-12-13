@@ -47,11 +47,18 @@
                 </li>
                 <li class="nav-item">
 
-
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login">
+                    @if (auth()->user())
+                        <a class="nav-link" href="{{route('user.logout')}}">logout</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">{{auth()->user()->name}}</a>
+                        </li>
+                    @else
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login">
                        Login
                     </button>
+                    @endif
+                    <!-- Button trigger modal -->
+                    
 
                 </li>
                 <li class="nav-item">
@@ -63,6 +70,8 @@
                     </button>
 
                 </li>
+
+                
             </ul>
         </div>
     </div>
@@ -125,23 +134,23 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="">
-
+                <form action="{{route('user.do.login')}}" method="POST">
+                    @csrf
                     <div class="form-group">
                         <label>Enter User Email:</label>
-                        <input type="email" class="form-control">
+                        <input name="email" type="email" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Enter User Password:</label>
-                        <input type="password" class="form-control">
+                        <input name="password" type="password" class="form-control">
                     </div>
-
+                    <button type="submit" class="btn btn-primary">submit</button>
                 </form>
             </div>
-            <div class="modal-footer">
+            {{-- <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

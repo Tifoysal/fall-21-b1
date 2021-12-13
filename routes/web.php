@@ -28,6 +28,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[HomeController::class,'home']);
 
 Route::post('/registration',[UserController::class,'registration'])->name('user.registration');
+Route::post('/login/post',[UserController::class,'userLogin'])->name('user.do.login');
+Route::get('/user/logout',[UserController::class,'userLogout'])->name('user.logout');
 
 
 Route::group(['prefix'=>'admin'],function (){

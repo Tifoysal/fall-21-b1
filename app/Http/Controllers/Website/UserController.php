@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Website;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -29,5 +30,22 @@ class UserController extends Controller
 
 
 
+    }
+    public function userLogin(Request $request){
+        // dd($request->all());
+        $userpost= $request->except('_token');
+        // dd($userpost);
+        // dd(Auth::attempt($userpost));
+        if (Auth::attempt($userpost)) {
+            return redirect()->back();
+        }
+        else
+        return redirect()->back();
+        return redirect()->back()->with('batch','email not found.');
+    }
+
+    public function userLogout(){
+        Auth::logout();
+        return redirect()->back();
     }
 }

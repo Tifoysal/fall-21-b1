@@ -26,7 +26,7 @@ class ProductController extends Controller
 
     public function productStore(Request $request){
 
-
+            // dd($request->all());
 
                 $image_name=null;
 //              step 1: check image exist in this request.
@@ -34,10 +34,10 @@ class ProductController extends Controller
                  {
                      // step 2: generate file name
                      $image_name=date('Ymdhis') .'.'. $request->file('product_image')->getClientOriginalExtension();
-
+// dd($image_name);
                      //step 3 : store into project directory
 
-                     $request->file('product_image')->storeAs('/products',$image_name);
+                     $request->file('product_image')->storeAs('/uploads/products',$image_name);
 
                  }
 
