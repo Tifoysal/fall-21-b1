@@ -69,4 +69,28 @@ class ProductController extends Controller
        Product::find($product_id)->delete();
        return redirect()->back()->with('success','Product Deleted.');
     }
+
+    public function productEdit($id){
+        // dd($id);
+        $categories = Category::all();
+        $product = Product::find($id);
+        if ($product) {
+            return view('admin.pages.update-product',compact('product','categories'));
+        }
+
+    }
+
+    public function productUpdate(Request $request,$id){
+        // dd($request->all());
+        $product = Product::find($id);
+        if ($product) {
+            $product->update([
+                'name'=>$request->name,
+            'price'=>$request->price,
+            'category_id'=>$request->category,
+            'details'=>$request->details,
+            ]);
+            return redirect()->route('admin.product.list');
+        }
+    }
 }

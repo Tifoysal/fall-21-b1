@@ -38,6 +38,7 @@
                     <td>
                         <a class="btn btn-primary" href="{{route('admin.product.details',$product->id)}}">View</a>
                         <a class="btn btn-danger" href="{{route('admin.product.delete',$product->id)}}">Delete</a>
+                        <a class="btn btn-info" href="{{route('admin.product.edit',$product->id)}}">Edit</a>
                     </td>
                 </tr>
 

@@ -44,6 +44,8 @@ Route::group(['prefix'=>'admin'],function (){
     Route::post('product/store',[ProductController::class,'productStore'])->name('admin.product.store');
     Route::get('product/view/{product_id}',[ProductController::class,'productDetails'])->name('admin.product.details');
     Route::get('product/delete/{product_id}',[ProductController::class,'productDelete'])->name('admin.product.delete');
+    Route::get('/product/edit/{id}',[ProductController::class,'productEdit'])->name('admin.product.edit');
+    Route::put('/product/update/{id}',[ProductController::class,'productUpdate'])->name('admin.product.update');
 
 
     // category routes
