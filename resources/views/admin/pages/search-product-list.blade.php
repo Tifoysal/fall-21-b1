@@ -2,22 +2,10 @@
 
 
 @section('content')
-<h1>Product List</h1>
-@if(session()->has('success'))
-<p class="alert alert-success">
-    {{session()->get('success')}}
-</p>
-@endif
-<a href="{{url('admin/product/create')}}" class="btn btn-success">Create new product</a>
+<h1>Searched Product List</h1>
+
 <br><br>
-<form action="{{route('admin.product.search')}}" method="GET">
-    <div class="form-group">
-        {{-- <label for="exampleInputEmail1">Email address</label> --}}
-        <input name="search" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-<br><br>
+
 <table class="table">
     <thead>
         <tr>

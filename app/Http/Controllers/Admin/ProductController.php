@@ -93,4 +93,12 @@ class ProductController extends Controller
             return redirect()->route('admin.product.list');
         }
     }
+
+    public function productSearch(){
+        // dd(request()->all());
+        $key = request()->search;
+        $products = Product::where('name','LIKE',"%{$key}%")->get();
+        // dd($products);
+        return view('admin.pages.search-product-list',compact('products'));
+    }
 }
